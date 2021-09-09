@@ -1,12 +1,11 @@
 /*
- * @Descripttion: mixin ---- mixin原理
+ * @Descripttion: 
  * @version: 
  * @Author: 鹿角兔子
- * @Date: 2021-06-22 21:12:33
+ * @Date: 2021-09-09 23:56:50
  * @LastEditors: 鹿角兔子
- * @LastEditTime: 2021-06-22 21:44:00
+ * @LastEditTime: 2021-09-09 23:56:50
  */
-
 // 定义生命周期
 export const LIFECYCLE_HOOKS = [
   "beforeCreate",
@@ -62,4 +61,5 @@ export function mergeOptions(parent, child) {
       options[k] = child[k] ? child[k] : parent[k];
     }
   }
+  return options;
 }
