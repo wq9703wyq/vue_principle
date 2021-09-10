@@ -4,9 +4,9 @@
  * @Author: 鹿角兔子
  * @Date: 2021-08-23 19:04:57
  * @LastEditors: 鹿角兔子
- * @LastEditTime: 2021-08-23 19:04:57
+ * @LastEditTime: 2021-09-10 22:04:24
  */
-
+import { compileToFunctions } from "./compileToFunctions";
 
 Vue.prototype.$mount = function (el) {
   const vm = this;
@@ -28,7 +28,7 @@ Vue.prototype.$mount = function (el) {
         // template不符合要求，中断返回
         return vm;
       }
-    } else if(el) {
+    } else if (el) {
       // 不存在template，取el的outerHTML
       template = el.outerHTML;
     }

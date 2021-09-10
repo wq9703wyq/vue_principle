@@ -4,10 +4,12 @@
  * @Author: 鹿角兔子
  * @Date: 2021-08-30 21:06:12
  * @LastEditors: 鹿角兔子
- * @LastEditTime: 2021-09-01 00:03:24
+ * @LastEditTime: 2021-09-10 22:05:03
  */
 
-  // 生成AST方法
+import { parseHTML } from "parseHTML";
+
+// 生成AST方法
 export function createASTElement(tagName, attrs) {
   return {
     type: 1,
@@ -16,12 +18,12 @@ export function createASTElement(tagName, attrs) {
     attrsMap: makeAttrsMap(attrs),
     rawAttrsMap: {},
     parent,
-    children: [] 
+    children: []
   }
 }
 
 export function pares(template, options) {
-  let root ,currentParent; // 代表根节点、当前父节点
+  let root, currentParent; // 代表根节点、当前父节点
   // 栈结构 表示开始和结束标签
   let stack = [];
   // 标识元素和文本type
@@ -33,8 +35,8 @@ export function pares(template, options) {
     trimEndingWhitespace(element);
     if (!stack.length && element !== root) {
       if (root.if && (element.elseif || element.else)) {
-        addIfCondition(root, {exp: element.elseif, block: element})
-      } 
+        addIfCondition(root, { exp: element.elseif, block: element })
+      }
     }
     if (currentParent && !element.forbidden) {
       // 处理elseif模块

@@ -4,8 +4,10 @@
  * @Author: 鹿角兔子
  * @Date: 2021-08-16 21:49:17
  * @LastEditors: 鹿角兔子
- * @LastEditTime: 2021-08-22 23:47:30
+ * @LastEditTime: 2021-09-10 21:54:18
  */
+
+import { arrayMethods } from "../arrayMethods";
 
 class Observe {
   constructor(value) {
