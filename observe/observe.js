@@ -4,13 +4,19 @@
  * @Author: 鹿角兔子
  * @Date: 2021-08-16 21:49:17
  * @LastEditors: 鹿角兔子
- * @LastEditTime: 2021-09-10 21:54:18
+ * @LastEditTime: 2022-01-07 01:07:27
  */
 
 import { arrayMethods } from "../arrayMethods";
 
 class Observe {
   constructor(value) {
+    Object.defineProperty(value, "__ob__", {
+      value: this,
+      enumerable: true,
+      writable: true,
+      configurable: true
+    })
     if (Array.isArray(value)) {
       // 如果是数组，重写对象的数组方法原型
       value.__proto__ = arrayMethods;

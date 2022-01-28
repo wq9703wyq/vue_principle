@@ -7,14 +7,12 @@ import {mergeOptions} from "./util/index"
  * @Author: 鹿角兔子
  * @Date: 2021-09-10 00:50:47
  * @LastEditors: 鹿角兔子
- * @LastEditTime: 2021-09-10 00:56:30
+ * @LastEditTime: 2022-01-06 01:21:48
  */
 export function initMixin(Vue) {
   Vue.prototype._init = function (options) {
     const vm = this;
-    // 这里的this代表调用_init方法的对象(实例对象)
-    //  this.$options就是用户new Vue的时候传入的属性和全局的Vue.options合并之后的结果
-
+    // 初始化中 this 为Vue实例，options 是组件选项
     vm.$options = mergeOptions(vm.constructor.options, options);
     callHook(vm, "beforeCreate"); //初始化数据之前
     // 初始化状态
